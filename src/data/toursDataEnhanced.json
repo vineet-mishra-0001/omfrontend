@@ -1,0 +1,148 @@
+{
+  "tours": [
+    {
+      "title": "Royal Rajasthan Heritage Tour",
+      "duration": "5 days",
+      "difficulty": "Easy",
+      "price": "45000",
+      "rating": 4.8,
+      "reviews": 245,
+      "bannerImage": "https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1567591370504-38cbe0c0c8f3?auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1580294647332-8a399cd9ed6c?auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1524237629218-0a9fc7a6d8b9?auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1590059300833-0382d2f2d0db?auto=format&fit=crop&q=80"
+      ],
+      "description": "Experience the grandeur of Hawa Mahal and City Palace in the Pink City. This comprehensive tour takes you through the heart of Rajasthan's capital, where every corner tells a story of royal heritage and cultural richness.",
+      "highlights": [
+        "Visit the magnificent Amber Fort",
+        "Shopping at Johari Bazaar",
+        "Traditional Rajasthani dinner with folk dance",
+        "Guided tour of City Palace"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival & City Palace",
+          "description": "Arrive in Jaipur, check-in to hotel. Afternoon visit to City Palace complex with guided tour of royal apartments.",
+          "image": "https://images.unsplash.com/photo-1590059300833-0382d2f2d0db?auto=format&fit=crop&q=80"
+        },
+        {
+          "day": 2,
+          "title": "Amber Fort Experience",
+          "description": "Morning elephant ride to Amber Fort, explore the magnificent architecture and enjoy panoramic views.",
+          "image": "https://images.unsplash.com/photo-1567591370504-38cbe0c0c8f3?auto=format&fit=crop&q=80"
+        },
+        {
+          "day": 3,
+          "title": "Heritage & Culture",
+          "description": "Visit Hawa Mahal, Jantar Mantar observatory, and evening cultural program with dinner.",
+          "image": "https://images.unsplash.com/photo-1580294647332-8a399cd9ed8c?auto=format&fit=crop&q=80"
+        },
+        {
+          "day": 4,
+          "title": "Markets & Crafts",
+          "description": "Explore local markets, visit craft centers, and shopping at Johari Bazaar.",
+          "image": "https://images.unsplash.com/photo-1524237629218-0a9fc7a6d8b9?auto=format&fit=crop&q=80"
+        },
+        {
+          "day": 5,
+          "title": "Departure",
+          "description": "Morning visit to Albert Hall Museum, afternoon departure.",
+          "image": "https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&q=80"
+        }
+      ],
+      "routePoints": [
+        {
+          "name": "Jaipur Airport",
+          "lat": 26.8242,
+          "lng": 75.8120
+        },
+        {
+          "name": "City Palace",
+          "lat": 26.9258,
+          "lng": 75.8237
+        },
+        {
+          "name": "Amber Fort",
+          "lat": 26.9855,
+          "lng": 75.8513
+        },
+        {
+          "name": "Hawa Mahal",
+          "lat": 26.9239,
+          "lng": 75.8267
+        },
+        {
+          "name": "Johari Bazaar",
+          "lat": 26.9244,
+          "lng": 75.8245
+        }
+      ]
+    },
+    {
+      "title": "Desert Safari Adventure",
+      "duration": "3 days",
+      "difficulty": "Moderate",
+      "price": "35000",
+      "rating": 4.9,
+      "reviews": 189,
+      "bannerImage": "https://images.unsplash.com/photo-1593096725694-7d180dd2e6c6?auto=format&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1586612438666-ffd0ae97ad36?auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1575999502951-4ab25b5ca889?auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1565026057447-bc90a3dceb87?auto=format&fit=crop&q=80"
+      ],
+      "description": "Explore the golden sands of Thar Desert with camel safari. Experience the magic of desert nights under starlit skies and the rich culture of desert villages.",
+      "highlights": [
+        "Sunset camel ride in sand dunes",
+        "Night camping under stars",
+        "Visit to Jaisalmer Fort",
+        "Traditional desert village tour"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Jaisalmer Fort Tour",
+          "description": "Arrive in Jaisalmer, visit the golden fort, explore ancient havelis.",
+          "image": "https://images.unsplash.com/photo-1586612438666-ffd0ae97ad36?auto=format&fit=crop&q=80"
+        },
+        {
+          "day": 2,
+          "title": "Desert Safari",
+          "description": "Full day desert safari, sunset camel ride, overnight desert camping.",
+          "image": "https://images.unsplash.com/photo-1575999502951-4ab25b5ca889?auto=format&fit=crop&q=80"
+        },
+        {
+          "day": 3,
+          "title": "Village Life",
+          "description": "Morning desert sunrise, visit local villages, departure.",
+          "image": "https://images.unsplash.com/photo-1565026057447-bc90a3dceb87?auto=format&fit=crop&q=80"
+        }
+      ],
+      "routePoints": [
+        {
+          "name": "Jaisalmer Railway Station",
+          "lat": 26.9154,
+          "lng": 70.9083
+        },
+        {
+          "name": "Jaisalmer Fort",
+          "lat": 26.9115,
+          "lng": 70.9134
+        },
+        {
+          "name": "Sam Sand Dunes",
+          "lat": 26.9924,
+          "lng": 70.6185
+        },
+        {
+          "name": "Desert Camp Site",
+          "lat": 27.0124,
+          "lng": 70.6285
+        }
+      ]
+    }
+  ]
+} 

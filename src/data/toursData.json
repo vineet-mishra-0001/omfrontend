@@ -1,0 +1,140 @@
+{
+  "tours": [
+    {
+      "id": 1,
+      "name": "Royal Rajasthan Heritage Tour",
+      "location": "Jaipur, Rajasthan",
+      "duration": "5 days",
+      "price": 45000,
+      "rating": 4.8,
+      "reviews": 245,
+      "image": "https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&q=80",
+      "description": "Experience the grandeur of Hawa Mahal and City Palace in the Pink City",
+      "highlights": [
+        "Visit the magnificent Amber Fort",
+        "Shopping at Johari Bazaar",
+        "Traditional Rajasthani dinner with folk dance",
+        "Guided tour of City Palace"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Desert Safari Adventure",
+      "location": "Jaisalmer, Rajasthan",
+      "duration": "3 days",
+      "price": 35000,
+      "rating": 4.9,
+      "reviews": 189,
+      "image": "https://images.unsplash.com/photo-1593096725694-7d180dd2e6c6?auto=format&fit=crop&q=80",
+      "description": "Explore the golden sands of Thar Desert with camel safari",
+      "highlights": [
+        "Sunset camel ride in sand dunes",
+        "Night camping under stars",
+        "Visit to Jaisalmer Fort",
+        "Traditional desert village tour"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Lake City Experience",
+      "location": "Udaipur, Rajasthan",
+      "duration": "4 days",
+      "price": 40000,
+      "rating": 4.7,
+      "reviews": 167,
+      "image": "https://images.unsplash.com/photo-1598890777032-bde835ba27c2?auto=format&fit=crop&q=80",
+      "description": "Discover the romantic Lake Palace and cultural heritage",
+      "highlights": [
+        "Boat ride in Lake Pichola",
+        "Visit to City Palace",
+        "Evening at Bagore Ki Haveli",
+        "Shopping at local markets"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Blue City Marvel",
+      "location": "Jodhpur, Rajasthan",
+      "duration": "3 days",
+      "price": 32000,
+      "rating": 4.6,
+      "reviews": 142,
+      "image": "https://images.unsplash.com/photo-1591089101324-2280d9260097?auto=format&fit=crop&q=80",
+      "description": "Explore the majestic Mehrangarh Fort and blue-painted houses",
+      "highlights": [
+        "Tour of Mehrangarh Fort",
+        "Visit to Jaswant Thada",
+        "Local cuisine experience",
+        "Clock Tower market visit"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Spiritual Pushkar Journey",
+      "location": "Pushkar, Rajasthan",
+      "duration": "2 days",
+      "price": 25000,
+      "rating": 4.5,
+      "reviews": 98,
+      "image": "https://images.unsplash.com/photo-1624461016140-57c8a2165f63?auto=format&fit=crop&q=80",
+      "description": "Experience the holy city and famous Pushkar Lake",
+      "highlights": [
+        "Morning aarti at Pushkar Lake",
+        "Visit to Brahma Temple",
+        "Local market exploration",
+        "Sunset camel ride"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Ranthambore Wildlife Safari",
+      "location": "Ranthambore, Rajasthan",
+      "duration": "3 days",
+      "price": 38000,
+      "rating": 4.8,
+      "reviews": 156,
+      "image": "https://images.unsplash.com/photo-1598812866501-87b31d394809?auto=format&fit=crop&q=80",
+      "description": "Tiger spotting and wildlife adventure in Ranthambore National Park",
+      "highlights": [
+        "Morning and evening safaris",
+        "Visit to Ranthambore Fort",
+        "Bird watching tour",
+        "Nature photography sessions"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Mount Abu Hill Retreat",
+      "location": "Mount Abu, Rajasthan",
+      "duration": "3 days",
+      "price": 28000,
+      "rating": 4.4,
+      "reviews": 112,
+      "image": "https://images.unsplash.com/photo-1627301517152-11505d049286?auto=format&fit=crop&q=80",
+      "description": "Escape to Rajasthan's only hill station",
+      "highlights": [
+        "Visit to Dilwara Temples",
+        "Sunset at Nakki Lake",
+        "Trekking adventures",
+        "Local Rajasthani cuisine"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Chittorgarh Fort Explorer",
+      "location": "Chittorgarh, Rajasthan",
+      "duration": "2 days",
+      "price": 22000,
+      "rating": 4.6,
+      "reviews": 87,
+      "image": "https://images.unsplash.com/photo-1590766940554-153a9dab5ea2?auto=format&fit=crop&q=80",
+      "description": "Discover India's largest fort complex and its heroic history",
+      "highlights": [
+        "Fort heritage walk",
+        "Light and sound show",
+        "Visit to Vijay Stambh",
+        "Local handicraft shopping"
+      ]
+    }
+  ]
+} 
