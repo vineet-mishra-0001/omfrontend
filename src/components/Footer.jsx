@@ -78,7 +78,7 @@ const Footer = () => {
             <img 
               src={siteData?.logo} 
               alt={siteData?.siteName} 
-              className="h-8 mb-4 mx-auto md:mx-0"
+              className="h-20 w-20 object-cover mb-4 mx-auto md:mx-0"
             />
             <h3 className="text-gray-800 font-medium mb-4">{siteData?.siteName}</h3>
             <div className="flex justify-center md:justify-start space-x-4">

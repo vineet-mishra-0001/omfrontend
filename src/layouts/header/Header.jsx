@@ -1,13 +1,13 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Search, User, Menu, X, LogOut, Star, Car, MapPin } from "lucide-react";
-import Input from "../../components/input/Input";
-import Button from "../../components/button/Button";
-import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
-import { apiClient } from "../../api/ApiRequest";
+import React, { useState, useContext, useEffect } from 'react';
+import { Search, User, Menu, X, LogOut, Star, Car, MapPin } from 'lucide-react';
+import Input from '../../components/input/Input';
+import Button from '../../components/button/Button';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
+import { apiClient } from '../../api/ApiRequest';
 
 const CarRentalHeader = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
@@ -18,7 +18,7 @@ const CarRentalHeader = () => {
   const handleSearchChange = async (e) => {
     const query = e.target.value;
     setSearchQuery(query);
-    
+
     if (query.length > 2) {
       setLoading(true);
       try {
@@ -26,16 +26,16 @@ const CarRentalHeader = () => {
         const { tours, cars } = response.data;
 
         const results = [
-          ...cars.map(car => ({
+          ...cars.map((car) => ({
             ...car,
             type: 'car',
-            icon: <Car className="w-5 h-5 text-blue-500" />
+            icon: <Car className="w-5 h-5 text-blue-500" />,
           })),
-          ...tours.map(tour => ({
+          ...tours.map((tour) => ({
             ...tour,
             type: 'tour',
-            icon: <MapPin className="w-5 h-5 text-green-500" />
-          }))
+            icon: <MapPin className="w-5 h-5 text-green-500" />,
+          })),
         ];
 
         setSearchResults(results);
@@ -76,8 +76,14 @@ const CarRentalHeader = () => {
           {/* Desktop view */}
           <div className="hidden md:flex items-center justify-between">
             <div className="flex items-center">
-              <img className="h-10 w-10 mr-5 object-contain" src="/racing.png" alt="" />
-              <h1 className="text-2xl font-bold text-blue-600 tracking-tight">Ombanna Tours</h1>
+              <img
+                className="h-20 w-20 mr-5 object-cover"
+                src="/omt.png"
+                alt=""
+              />
+              <h1 className="text-2xl font-bold text-blue-600 tracking-tight">
+                Ombanna Tours
+              </h1>
             </div>
 
             <div className="w-2/5 relative">
@@ -89,8 +95,12 @@ const CarRentalHeader = () => {
                   value={searchQuery}
                   onChange={handleSearchChange}
                   onFocus={() => setIsSearchFocused(true)}
-                  onBlur={() => setTimeout(() => setIsSearchFocused(false), 200)}
-                  isExpanded={isSearchFocused && (searchResults.length > 0 || loading)}
+                  onBlur={() =>
+                    setTimeout(() => setIsSearchFocused(false), 200)
+                  }
+                  isExpanded={
+                    isSearchFocused && (searchResults.length > 0 || loading)
+                  }
                   className="py-3 pl-12 pr-4 rounded-full shadow-sm border-gray-200 hover:border-blue-300 focus:border-blue-500"
                 />
                 <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-blue-500">
@@ -99,7 +109,7 @@ const CarRentalHeader = () => {
               </div>
 
               {/* Search Results Dropdown */}
-              {(isSearchFocused && (searchResults.length > 0 || loading)) && (
+              {isSearchFocused && (searchResults.length > 0 || loading) && (
                 <div className="absolute w-full bg-white rounded-b-lg shadow-lg border border-gray-200 max-h-96 overflow-y-auto z-[100] transform transition-all duration-300">
                   {loading ? (
                     <div className="p-4 text-center">
@@ -107,7 +117,7 @@ const CarRentalHeader = () => {
                     </div>
                   ) : (
                     <div className="divide-y divide-gray-100">
-                      {searchResults.map((result) => (
+                      { searchResults && searchResults.map((result) => (
                         <div
                           key={result._id}
                           onClick={() => handleResultClick(result)}
@@ -119,18 +129,22 @@ const CarRentalHeader = () => {
                             <MapPin className="w-5 h-5 text-green-500" />
                           )}
                           <div className="flex-1">
-                            <h3 className="font-medium text-gray-900">{result.title || result.name}</h3>
+                            <h3 className="font-medium text-gray-900">
+                              {result.title || result.name}
+                            </h3>
                             <p className="text-sm text-gray-500">
-                              {result.type === 'car' 
-                                ? `${result.brand} • ${result.model} • ${result.year}`
-                                : `${result.duration} • ${result.difficulty}`}
+                              {result.type === 'car'
+                                ? `${result?.category} • 🚀 • ${result?.features?.year}`
+                                : `${result?.duration} • ${result?.difficulty}`}
                             </p>
                           </div>
-                          <span className={`px-2 py-1 text-xs rounded-full ${
-                            result.type === 'car' 
-                              ? 'bg-blue-100 text-blue-800' 
-                              : 'bg-green-100 text-green-800'
-                          }`}>
+                          <span
+                            className={`px-2 py-1 text-xs rounded-full ${
+                              result.type === 'car'
+                                ? 'bg-blue-100 text-blue-800'
+                                : 'bg-green-100 text-green-800'
+                            }`}
+                          >
                             {result.type}
                           </span>
                         </div>
@@ -144,16 +158,24 @@ const CarRentalHeader = () => {
             <div className="flex space-x-4 w-[250px] justify-end items-center">
               {currentUser ? (
                 <div className="flex items-center gap-3">
-                  <Link className="flex items-center gap-3" to="/myBookings/all">
+                  <Link
+                    className="flex items-center gap-3"
+                    to="/myBookings/all"
+                  >
                     <img
                       crossOrigin="anonymous"
-                      src={`http://localhost:5000${currentUser.avatar}` || "/default-avatar.png"}
+                      src={
+                        `https://avatar.iran.liara.run/public` 
+                      }
                       alt="User Avatar"
+                      
                       className="h-10 w-10 rounded-full object-cover border border-gray-200 shadow"
                     />
                     <div className="flex flex-col items-start">
                       <p className="text-gray-500 text-xs">User</p>
-                      <p className="text-gray-600 text-sm font-bold">{currentUser?.username}</p>
+                      <p className="text-gray-600 text-sm font-bold">
+                        {currentUser?.username}
+                      </p>
                     </div>
                   </Link>
                   <button
@@ -165,8 +187,12 @@ const CarRentalHeader = () => {
                 </div>
               ) : (
                 <>
-                  <Button><Link to="/login">Login</Link></Button>
-                  <Button><Link to="/register">Sign Up</Link></Button>
+                  <Button>
+                    <Link to="/login">Login</Link>
+                  </Button>
+                  <Button>
+                    <Link to="/register">Sign Up</Link>
+                  </Button>
                 </>
               )}
             </div>
@@ -175,7 +201,11 @@ const CarRentalHeader = () => {
           {/* Mobile view */}
           <div className="md:hidden flex items-center justify-between">
             <div className="flex items-center">
-              <img className="h-10 w-10 mr-5 object-contain" src="/racing.png" alt="" />
+              <img
+                className="h-10 w-10 mr-5 object-contain"
+                src="/racing.png"
+                alt=""
+              />
               <h1 className="text-xl font-bold text-blue-600">RentWheels</h1>
             </div>
 
@@ -184,7 +214,9 @@ const CarRentalHeader = () => {
                 <Link className="flex items-center gap-2" to="/profile">
                   <img
                     crossOrigin="anonymous"
-                    src={`http://localhost:5000${currentUser.avatar}` || "/default-avatar.png"}
+                    src={
+                      currentUser?.avatar ? `https://api.ombannatours.com${currentUser.avatar}`  : 'https://avatar.iran.liara.run/public'
+                    }
                     alt="User Avatar"
                     className="h-10 w-10 rounded-full object-cover border border-gray-200 shadow"
                   />
@@ -194,7 +226,10 @@ const CarRentalHeader = () => {
                   <User size={20} />
                 </button>
               )}
-              <button className="p-2 text-blue-600 hover:text-blue-800" onClick={toggleMobileMenu}>
+              <button
+                className="p-2 text-blue-600 hover:text-blue-800"
+                onClick={toggleMobileMenu}
+              >
                 {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
               </button>
             </div>
@@ -211,7 +246,9 @@ const CarRentalHeader = () => {
                 onChange={handleSearchChange}
                 onFocus={() => setIsSearchFocused(true)}
                 onBlur={() => setTimeout(() => setIsSearchFocused(false), 200)}
-                isExpanded={isSearchFocused && (searchResults.length > 0 || loading)}
+                isExpanded={
+                  isSearchFocused && (searchResults.length > 0 || loading)
+                }
                 className="py-2 pl-10 pr-4 rounded-full shadow-sm"
               />
               <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-500">
@@ -220,7 +257,7 @@ const CarRentalHeader = () => {
             </div>
 
             {/* Mobile Search Results Dropdown */}
-            {(isSearchFocused && (searchResults.length > 0 || loading)) && (
+            {isSearchFocused && (searchResults.length > 0 || loading) && (
               <div className="absolute w-full bg-white rounded-b-lg shadow-lg border border-gray-200 max-h-96 overflow-y-auto z-[100] transform transition-all duration-300">
                 {loading ? (
                   <div className="p-4 text-center">
@@ -240,18 +277,22 @@ const CarRentalHeader = () => {
                           <MapPin className="w-5 h-5 text-green-500" />
                         )}
                         <div className="flex-1">
-                          <h3 className="font-medium text-gray-900">{result.title || result.name}</h3>
+                          <h3 className="font-medium text-gray-900">
+                            {result.title || result.name}
+                          </h3>
                           <p className="text-sm text-gray-500">
-                            {result.type === 'car' 
+                            {result.type === 'car'
                               ? `${result.brand} • ${result.model} • ${result.year}`
                               : `${result.duration} • ${result.difficulty}`}
                           </p>
                         </div>
-                        <span className={`px-2 py-1 text-xs rounded-full ${
-                          result.type === 'car' 
-                            ? 'bg-blue-100 text-blue-800' 
-                            : 'bg-green-100 text-green-800'
-                        }`}>
+                        <span
+                          className={`px-2 py-1 text-xs rounded-full ${
+                            result.type === 'car'
+                              ? 'bg-blue-100 text-blue-800'
+                              : 'bg-green-100 text-green-800'
+                          }`}
+                        >
                           {result.type}
                         </span>
                       </div>
@@ -355,15 +396,22 @@ const CarRentalHeader = () => {
               <div className="flex flex-col items-center px-4 py-2">
                 {currentUser ? (
                   <>
-                    <Link to="/profile" className="flex items-center gap-3 mb-2">
+                    <Link
+                      to="/profile"
+                      className="flex items-center gap-3 mb-2"
+                    >
                       <img
-                        src={`http://localhost:5000${currentUser.avatar}` || "/default-avatar.png"}
+                        src={
+                          `https://api.ombannatours.com${currentUser.avatar}`
+                        }
                         alt="User Avatar"
                         className="h-10 w-10 rounded-full object-cover"
                       />
                       <div className="flex flex-col items-start">
                         <p className="text-gray-500 text-xs">User</p>
-                        <p className="text-gray-600 text-sm font-bold">{currentUser?.username}</p>
+                        <p className="text-gray-600 text-sm font-bold">
+                          {currentUser?.username}
+                        </p>
                       </div>
                     </Link>
                     <button
@@ -375,8 +423,12 @@ const CarRentalHeader = () => {
                   </>
                 ) : (
                   <div className="flex justify-between w-full gap-2">
-                    <Button className="w-full"><Link to="/login">Login</Link></Button>
-                    <Button className="w-full"><Link to="/register">Sign Up</Link></Button>
+                    <Button className="w-full">
+                      <Link to="/login">Login</Link>
+                    </Button>
+                    <Button className="w-full">
+                      <Link to="/register">Sign Up</Link>
+                    </Button>
                   </div>
                 )}
               </div>
@@ -384,51 +436,78 @@ const CarRentalHeader = () => {
               <nav className="mt-2">
                 <ul className="flex flex-col space-y-2">
                   <li>
-                    <Link to="/" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                    <Link
+                      to="/"
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    >
                       Home
                     </Link>
                   </li>
                   <li>
-                    <Link to="/cars" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                    <Link
+                      to="/cars"
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    >
                       Cars
                     </Link>
                   </li>
                   <li>
-                    <Link to="/tours" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                    <Link
+                      to="/tours"
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    >
                       Tours
                     </Link>
                   </li>
                   {currentUser && (
                     <>
                       <li>
-                        <Link to="/myBookings/tours" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                        <Link
+                          to="/myBookings/tours"
+                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                        >
                           My Tour Bookings
                         </Link>
                       </li>
                       <li>
-                        <Link to="/myBookings/cars" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                        <Link
+                          to="/myBookings/cars"
+                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                        >
                           My Car Bookings
                         </Link>
                       </li>
                     </>
                   )}
                   <li>
-                    <Link to="/blog" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                    <Link
+                      to="/blog"
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    >
                       Blog
                     </Link>
                   </li>
                   <li>
-                    <Link to="/about" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                    <Link
+                      to="/about"
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    >
                       About Us
                     </Link>
                   </li>
                   <li>
-                    <Link to="/contact" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                    <Link
+                      to="/contact"
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    >
                       Contact Us
                     </Link>
                   </li>
                   <li>
-                    <Link to="/feedback" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                    <Link
+                      to="/feedback"
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    >
                       Feedback
                     </Link>
                   </li>

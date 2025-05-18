@@ -51,7 +51,7 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    
+
     try {
       const formDataToSend = new FormData();
       formDataToSend.append('email', formData.email);
@@ -60,11 +60,15 @@ const Profile = () => {
         formDataToSend.append('avatar', selectedFile);
       }
 
-      const response = await apiClient.put(`/auth/user/${currentUser._id}`, formDataToSend, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      const response = await apiClient.put(
+        `/auth/user/${currentUser._id}`,
+        formDataToSend,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      );
 
       if (response.status === 200) {
         updateUser(response.data.user);
@@ -84,7 +88,9 @@ const Profile = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-700">Please login to view your profile</h2>
+          <h2 className="text-2xl font-bold text-gray-700">
+            Please login to view your profile
+          </h2>
           <button
             onClick={() => navigate('/login')}
             className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
@@ -167,9 +173,13 @@ const Profile = () => {
                 <div className="w-32 h-32 rounded-full border-4 border-white bg-white overflow-hidden">
                   {avatarPreview ? (
                     <img
-                      src={typeof avatarPreview === 'string' && avatarPreview.startsWith('data:') 
-                        ? avatarPreview 
-                        : `http://localhost:5000${avatarPreview}`}
+                      src={
+                        typeof avatarPreview === 'string' &&
+                        avatarPreview.startsWith('data:')
+                          // ? avatarPreview
+                          ? 'https://avatar.iran.liara.run/public'
+                          : `https://api.ombannatours.com${avatarPreview}`
+                      }
                       alt="Profile"
                       className="w-full h-full object-cover"
                     />
@@ -202,8 +212,13 @@ const Profile = () => {
           <div className="pt-20 px-8 pb-8">
             <div className="flex justify-between items-start mb-8">
               <div>
-                <h1 className="text-3xl font-bold text-gray-900">{currentUser.username}</h1>
-                <p className="text-gray-500 mt-1">Member since {new Date(currentUser.createdAt).toLocaleDateString()}</p>
+                <h1 className="text-3xl font-bold text-gray-900">
+                  {currentUser.username}
+                </h1>
+                <p className="text-gray-500 mt-1">
+                  Member since{' '}
+                  {new Date(currentUser.createdAt).toLocaleDateString()}
+                </p>
               </div>
               <button
                 onClick={isEditing ? handleSubmit : () => setIsEditing(true)}
@@ -275,4 +290,4 @@ const Profile = () => {
   );
 };
 
-export default Profile; 
+export default Profile;

@@ -26,13 +26,13 @@ const ClientFeedbacks = () => {
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex + 3 >= feedbacks.length ? 0 : prevIndex + 3
     );
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex - 3 < 0 ? Math.max(0, feedbacks.length - 3) : prevIndex - 3
     );
   };
@@ -60,9 +60,12 @@ const ClientFeedbacks = () => {
     <div className="bg-gradient-to-b from-white to-blue-50 py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            What Our Clients Say
+          </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Read genuine feedback from our valued customers who have experienced our services
+            Read genuine feedback from our valued customers who have experienced
+            our services
           </p>
         </div>
 
@@ -94,12 +97,14 @@ const ClientFeedbacks = () => {
               >
                 <div className="flex items-center mb-4">
                   <img
-                    src={`http://localhost:5000${feedback.userId.avatar}`}
+                    src={`https://api.ombannatours.com${feedback.userId.avatar}`}
                     alt={feedback.userId.username}
                     className="w-12 h-12 rounded-full object-cover border-2 border-blue-100"
                   />
                   <div className="ml-4">
-                    <h3 className="font-semibold text-gray-900">{feedback.userId.username}</h3>
+                    <h3 className="font-semibold text-gray-900">
+                      {feedback.userId.username}
+                    </h3>
                     <div className="flex mt-1">
                       {renderStars(feedback.rating)}
                     </div>
@@ -115,7 +120,10 @@ const ClientFeedbacks = () => {
 
           {feedbacks.length === 0 && (
             <div className="text-center py-10">
-              <p className="text-gray-500">No feedbacks available yet. Be the first to share your experience!</p>
+              <p className="text-gray-500">
+                No feedbacks available yet. Be the first to share your
+                experience!
+              </p>
             </div>
           )}
         </div>
@@ -124,4 +132,4 @@ const ClientFeedbacks = () => {
   );
 };
 
-export default ClientFeedbacks; 
+export default ClientFeedbacks;

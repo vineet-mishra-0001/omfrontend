@@ -17,7 +17,11 @@ const TestimonialSlider = () => {
       if (response.status === 200) {
         // Duplicate the feedbacks array for infinite scroll effect
         const originalFeedbacks = response.data.data || [];
-        setFeedbacks([...originalFeedbacks, ...originalFeedbacks, ...originalFeedbacks]);
+        setFeedbacks([
+          ...originalFeedbacks,
+          ...originalFeedbacks,
+          ...originalFeedbacks,
+        ]);
       }
     } catch (error) {
       console.error('Error fetching feedbacks:', error);
@@ -52,12 +56,12 @@ const TestimonialSlider = () => {
         <motion.div
           className="flex gap-6"
           initial={{ x: 0 }}
-          animate={{ 
-            x: [0, -33.33 * (feedbacks.length / 3) + '%']
+          animate={{
+            x: [0, -33.33 * (feedbacks.length / 3) + '%'],
           }}
           transition={{
             duration: 40,
-            ease: "linear",
+            ease: 'linear',
             repeat: Infinity,
           }}
           whileHover={{ animationPlayState: 'paused' }}
@@ -71,12 +75,14 @@ const TestimonialSlider = () => {
               <div className="flex flex-col">
                 <div className="flex items-center mb-4">
                   <img
-                    src={`http://localhost:5000${feedback.user.avatar}`}
+                    src={`https://api.ombannatours.com${feedback.user.avatar}`}
                     alt={feedback.user.email}
                     className="w-12 h-12 rounded-full object-cover border-2 border-blue-100 mr-4"
                   />
                   <div>
-                    <h4 className="font-semibold text-gray-900">{feedback.user.email}</h4>
+                    <h4 className="font-semibold text-gray-900">
+                      {feedback.user.email}
+                    </h4>
                     <div className="flex mt-1">
                       {renderStars(feedback.rating)}
                     </div>
@@ -90,7 +96,7 @@ const TestimonialSlider = () => {
                     {new Date(feedback.createdAt).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
-                      day: 'numeric'
+                      day: 'numeric',
                     })}
                   </p>
                 </div>
@@ -103,4 +109,4 @@ const TestimonialSlider = () => {
   );
 };
 
-export default TestimonialSlider; 
+export default TestimonialSlider;

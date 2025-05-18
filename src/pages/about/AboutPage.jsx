@@ -367,7 +367,7 @@ const AboutPage = () => {
                   >
                     <div className="flex flex-col items-center">
                       <img
-                        src={`http://localhost:5000${feedback.user.avatar}`}
+                        src={`https://api.ombannatours.com${feedback.user.avatar}`}
                         alt={feedback.user.email}
                         className="w-16 h-16 rounded-full object-cover border-4 border-blue-100 mb-4"
                       />
